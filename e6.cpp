@@ -1,28 +1,26 @@
 #include <iostream>
 #include <iomanip>
-#include <cmath>
 using namespace std;
 
 int main()
 {
-    int nAttendees, seatsPerTable, tablesRequired, totalSeats, unusedSeats;
-    double exactTables;
+    long long bytes;
+    double kilobytes, megabytes, gigabytes;
 
-    cout << "How many attendees? ";
-    cin >> nAttendees;
-    cout << "Seats per table: ";
-    cin >> seatsPerTable;
+    cout << "Enter file size in bytes: ";
+    cin >> bytes;
 
-    exactTables = static_cast<double>(nAttendees) / seatsPerTable;
-    tablesRequired = (int)ceil(exactTables);
-    totalSeats = tablesRequired * seatsPerTable;
-    unusedSeats = totalSeats - nAttendees;
+    kilobytes = bytes / 1024.0;
+    megabytes = kilobytes / 1024.0;
+    gigabytes = megabytes / 1024.0;
 
     cout << fixed << setprecision(2);
-    cout << "Exact Tables: " << exactTables << endl;
-    cout << "Tables Required: " << tablesRequired << endl;
-    cout << "Total Seats: " << totalSeats << endl;
-    cout << "Unused Seats: " << unusedSeats << endl;
+    cout << "Kilobytes: " << kilobytes << endl;
+    cout << "Megabytes: " << megabytes << endl;
+
+    cout << setprecision(4);
+    cout << "Gigabytes: " << gigabytes << endl;
+    cout << "Whole Megabytes: " << (long long)megabytes << endl;
 
     return 0;
 }
